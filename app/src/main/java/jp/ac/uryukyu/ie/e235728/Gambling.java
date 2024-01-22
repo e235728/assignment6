@@ -7,12 +7,12 @@ public class Gambling {
     public double returnRate = 0.95; // 戻り率９５％
     public boolean result;
     public boolean[] resultList ;
+
     
     public Gambling(double _AllUsersMoney, int x){
         this.AllUsersMoney = _AllUsersMoney;
         //ここでプレイヤーの人数を設定
         resultList = new boolean[x];
-        //ここの2は引数で設定
         //今は場の賭け金を手動で設定しているが、プレイヤーがベットした合計で算出するのが望ましい。
     }
     
@@ -44,8 +44,7 @@ public class Gambling {
         }
         else{
             return 0.0;
+            //リストの１番目が自分だと想定。
         }
     }
-
-
 }

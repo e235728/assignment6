@@ -1,6 +1,5 @@
-package jp.ac.uryukyu;
+package jp.ac.uryukyu.ie.e235728;
 
-import jp.ac.uryukyu.ie.e235728.Gambling;
 import java.util.Arrays;
 
 public class Main {
@@ -18,7 +17,7 @@ public class Main {
 
         System.out.println(Arrays.toString(test.resultList));
 
-        System.out.println(test.share());
+        System.out.println("あなたは" + test.share() + "円を得ました。");
 
 
     }

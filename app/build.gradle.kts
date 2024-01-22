@@ -34,10 +34,20 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("jp.ac.uryukyu.ie.e235728.App")
+    mainClass.set("Main")
 }
 
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+java {                                      
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "Main"
+    }
 }
