@@ -1,5 +1,6 @@
 package jp.ac.uryukyu.ie.e235728;
 
+
 public class Gambling {
     public double betAmount ;
     public double AllUsersMoney;
@@ -19,6 +20,7 @@ public class Gambling {
     public void bet(double betMoney){
         this.betAmount = betMoney;
         this.AllUsersMoney += betMoney;
+        //betした金額をAllUsersMoneyに追加する。
     }
     
     public void judge(){
@@ -29,7 +31,8 @@ public class Gambling {
             else{
                 this.resultList[i] = false;
             }
-}
+    //それぞれのプレイヤーについて、勝ちをtrue、負けをfalseとしてランダムに設定する。
+        }       
     }
 
     public double share(){
@@ -38,9 +41,12 @@ public class Gambling {
             if(resultList[i] == true){
                 winnerUsers ++ ;
             }
+            //勝った人の人数をカウントする。
         }
+
         if(resultList[0] == true){
             return AllUsersMoney * returnRate / winnerUsers ;
+            //勝った人たちで全ての金額を分配する。
         }
         else{
             return 0.0;

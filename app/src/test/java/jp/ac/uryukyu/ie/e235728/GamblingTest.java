@@ -1,6 +1,7 @@
 package jp.ac.uryukyu.ie.e235728;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GamblingTest {
@@ -8,16 +9,21 @@ public class GamblingTest {
     @Test
     public void testBet() {
         Gambling test = new Gambling(100000, 3);
-
+        
+        
         assertEquals(100000, test.AllUsersMoney);
 
         test.bet(50000);
         assertEquals(150000, test.AllUsersMoney);
+        //betをしたらその分の金額が増えるはず
 
         test.bet(100000);
         assertEquals(250000, test.AllUsersMoney);
-    }
+        //betの金額を増やしても、その分の金額が増える。
 
+    }
+    
+    
     @Test
     public void testShare() {
         Gambling test = new Gambling(100000, 3);
@@ -25,13 +31,29 @@ public class GamblingTest {
         test.bet(10000);
         test.bet(20000);
         test.bet(30000);
+        //仮に10000円、20000円、30000円ずつAllUsersMoneyを増やしたとき
 
-        // Simulate winning scenario
+
         test.resultList = new boolean[]{true, false, false};
-        assertEquals(20000, test.share(), 0.01); // Allow a small margin of error for double comparison
+        assertEquals(152000,test.share());
+        //勝ち負けを適当に設定
 
-        // Simulate losing scenario
+        
         test.resultList = new boolean[]{false, false, false};
-        assertEquals(0.0, test.share(), 0.01);
+        assertEquals(0.0, test.share());
+        //勝ち負けを適当に設定
+
+    }
+
+    @Test
+    void testRandom(){
+        Gambling test = new Gambling(100000,3);
+
+        test.resultList = new boolean[]{true,false,true};
+
+        assertEquals(test.AllUsersMoney * test.returnRate / 2 , test.share());
     }
 }
+
+
+//このユニットテストはchatgptを参考
